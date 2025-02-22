@@ -5,10 +5,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/*global CSS selector (affects the entire document)*/
+/* Enable smooth scrolling at the root level */
 :root {
-  /* Sets Inter as the default font, Falls back to sans-serif if Inter is unavailable */
   font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Ensure smooth scrolling is enabled on html and body */
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -35,12 +46,11 @@
 }
 
 .loader-text .letter {
-  display: inline-block !important;
-  font-family: "Arizonia", sans-serif !important;
-  font-size: 3vw !important;
-  letter-spacing: 0.1em !important;
+  display: inline-block;
+  font-family: "Arizonia", cursive;
+  letter-spacing: 0.1em;
   word-spacing: 0.3em;
-  color: #fff !important;
+  color: #fff;
 }
 
 .loader-text .space {

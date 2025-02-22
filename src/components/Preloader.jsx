@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import anime from "animejs";
 
-const Preloader = () => {
+const Preloader = ({ onFinish }) => {
 
     useEffect(() => {
         const colors = ["#000000", "#454545", "#808080", "#bababa", "#e2e2e2"];
@@ -71,7 +71,7 @@ const Preloader = () => {
             }, 0.4);
 
         // After 3 seconds, fade out the pre-loader (which contains the loader-wrapper and boxes)
-        gsap.to(".pre-loader", { opacity: 0, duration: 0.6, delay: 3, ease: "power1.inOut" });
+        gsap.to(".pre-loader", { opacity: 0, duration: 0.6, delay: 2.5, ease: "power1.inOut" });
 
         // 2. Text Split and Animation (Triggered after 3.1 seconds)
         setTimeout(() => {
@@ -100,6 +100,9 @@ const Preloader = () => {
                                 duration: 1.2,
                                 ease: "power2.out",
                                 stagger: 0.1,
+                                onComplete: () => {
+                                    if (onFinish) onFinish(); // ✅ Call `onFinish()` only when stripes finish moving
+                                }
                             }, ">")
                             // Fade out the text concurrently with the stripe animation
                             .to(".loader-text", {
@@ -119,7 +122,7 @@ const Preloader = () => {
                     translateX: [40, 0],
                     opacity: [0, 1],
                     easing: "easeOutExpo",
-                    duration: 1200,
+                    duration: 900,
                     delay: (el, i) => 100 + 30 * i,
                 });
 
@@ -127,13 +130,18 @@ const Preloader = () => {
             }
         }, 3100);
 
-    }, []);
+        // // Call `onFinish` when animation is fully done
+        // gsap.delayedCall(6, () => {
+        //     if (onFinish) onFinish(); // Notify App.js to update `z-index`
+        // });
+
+    }, [onFinish]);
 
 
     return (
         <div className="pre-loader-container">
             <div className="loader-text-wrapper">
-                <h1 className="loader-text">Suprit Patil</h1>
+                <h1 className="loader-text text-[clamp(2rem,3vw,5rem)] font-['Arizonia'] tracking-wider">Suprit Patil</h1>
                 <div className="revealer">
                     <div className="stripe"></div>
                     <div className="stripe"></div>

@@ -1,30 +1,90 @@
+// import React from "react";
+// import Navbar from "./components/Navbar";
+// import Preloader from "./components/Preloader";
+// import Hero from "./components/Hero"; // Optional, if you use it for additional hero content
+
+// const App = () => {
+//   return (
+//     <div className="relative overflow-x-hidden text-white antialiased selection:bg-white selection:text-black">
+
+//       {/* Background Video */}
+//       <video
+//         className="fixed top-0 left-0 w-full h-full object-cover z-[-1]"
+//         src="/videos/your-2160p-video.mp4"  // Place your 2160p video in public/videos folder
+//         autoPlay
+//         loop
+//         muted
+//         playsInline
+//       />
+
+//       {/* Transparent Navbar overlay */}
+//       <div className="fixed top-0 left-0 w-full z-50">
+//         <Navbar />
+//       </div>
+
+//       {/* Preloader overlay if needed */}
+//       <div className="fixed inset-0 z-60">
+//         <Preloader />
+//       </div>
+
+//       {/* Main Content (if any) */}
+//       <div className="relative pt-16">
+//         {/* Additional content goes here */}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
 import Navbar from './components/Navbar';
 import Preloader from "./components/Preloader";
-import React, { useState } from "react";
-
-
+import Hero from "./components/hero";
+import About from "./components/about";
+import React, { useState, useEffect } from "react";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  return (
-    //text higlight
-    <div className="overflow-x-hidden text-white antialiased selection:bg-white selection:text-black">
-      <div className="preloader">
-        <Preloader />
-      </div>
+  // Function to update state when Preloader finishes
+  const handlePreloaderFinish = () => {
+    setIsLoading(false);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Ensures Hero is the first page seen
+  };
 
-      {/* Background Gradient */}
-      <div className="fixed top-0 -z-10 h-full w-full">
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-black bg-[radial-gradient(ellipse_80%_80%_at_50%_-35%,rgba(255,255,255,0.3),rgba(0,0,0,1))]"></div>
+  // Prevent scrolling while Preloader is active
+  useEffect(() => {
+    if (isLoading) {
+      document.documentElement.style.overflow = "hidden"; // 🔒 Locks scrolling
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "auto"; // 🔓 Restores scrolling
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      // Cleanup in case component unmounts
+      document.documentElement.style.overflow = "auto";
+      document.body.style.overflow = "auto";
+    };
+  }, [isLoading]);
+
+  return (
+    <div className="min-h-screen bg-gray-900">
+      {/* Preloader */}
+      <div className={`fixed inset-0 transition-all duration-500 ${isLoading ? "z-loader" : "z-background"}`}>
+        {isLoading && <Preloader onFinish={handlePreloaderFinish} />}
       </div>
 
       {/* Main Content */}
-      <div className='container mx-auto px-8'>
+      <main className="relative">
         <Navbar />
-      </div>
-      {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-gray-200 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(0,0,0,.3))]"></div> */}
-    </div >
+        <Hero />
+        <About />
+      </main>
+    </div>
   );
 };
 
