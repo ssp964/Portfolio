@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*global CSS selector (affects the entire document)*/
+:root {
+  /* Sets Inter as the default font, Falls back to sans-serif if Inter is unavailable */
+  font-family: "Inter", sans-serif;
+}
+
+
+.pre-loader-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loader-text-wrapper {
+  position: relative;
+  /* Acts as reference for absolute children */
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  background: #000000;
+  display: flex;
+  align-items: center;
+  /* Vertically center */
+  justify-content: center;
+  /* Horizontally center */
+  padding: 10px;
+}
+
+.loader-text .letter {
+  display: inline-block !important;
+  font-family: "Arizonia", sans-serif !important;
+  font-size: 3vw !important;
+  letter-spacing: 0.1em !important;
+  word-spacing: 0.3em;
+  color: #fff !important;
+}
+
+.loader-text .space {
+  margin-right: 1em;
+  /* Adjust this value for more or less space */
+}
+
+.revealer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  opacity: 0;
+}
+
+.stripe {
+  flex: 1;
+  background: #fff;
+  transform: translateY(100%);
+}
+
+.pre-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .loader-wrapper {
+  position: relative;
+  width: 10px;
+  height: 140px;
+  background: rgb(240, 240, 240);
+  border-radius: 4px;
+  overflow: hidden;
+  transform: rotate(45deg);
+}
+
+.loader {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(251, 0, 255);
+  background: linear-gradient(100deg,
+      rgba(251, 0, 255, 1) 0%,
+      rgba(253, 29, 29, 1) 100%);
+} */
+
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  /* Ensures boxes are in a row */
+  gap: 10px;
+  /* Adds spacing between boxes */
+}
+
+
+@media (max-width: 900px) {
+
+  body,
+  .pre-loader-container {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+}
