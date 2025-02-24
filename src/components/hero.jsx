@@ -9,8 +9,9 @@ const Hero = () => {
             {!videoError ? (
                 <div className="absolute inset-0">
                     <video
-                        className="w-full h-full object-cover scale-[1.6] translate-x-10 md:-translate-x-64 md:translate-y-14"
-                        src="./src/assets/2792370-hd_1920_1080_30fps.mp4"
+                        className="w-full h-full object-cover scale-[1.4] translate-x-10 md:translate-x-32 md:translate-y-32"
+                        // className="w-full h-full object-cover scale-[1.6] translate-x-10 md:-translate-x-64 md:translate-y-14"
+                        src="./src/assets/5495781-uhd_2560_1080_30fps.mp4"
                         autoPlay
                         loop
                         muted
@@ -34,7 +35,7 @@ const Hero = () => {
                     {/* Text Container - Right Aligned */}
                     <div className="w-full flex justify-end mb-28">
                         <div className="bg-black/10 backdrop-blur-sm rounded-lg p-6 max-w-cl text-right">
-                            <h1 className="text-white text-5xl md:text-7xl font-poppins tracking-wide">
+                            <h1 className="text-white text-5xl md:text-7xl font-inter tracking-wide">
                                 I am a Data Scientist
                             </h1>
                             <h2 className="text-white text-xl md:text-3xl font-inter tracking-wide mt-6">

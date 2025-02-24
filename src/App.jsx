@@ -43,6 +43,8 @@ import Navbar from './components/Navbar';
 import Preloader from "./components/Preloader";
 import Hero from "./components/hero";
 import About from "./components/about";
+import Technologies from "./components/technologies";
+import Experiences from "./components/experiences";
 import React, { useState, useEffect } from "react";
 
 const App = () => {
@@ -83,6 +85,8 @@ const App = () => {
         <Navbar />
         <Hero />
         <About />
+        <Technologies />
+        <Experiences />
       </main>
     </div>
   );

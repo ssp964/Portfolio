@@ -4,9 +4,9 @@ import profilePic from '../assets/kevinRushProfile.jpg'; // Update this path to 
 
 const About = () => {
     return (
-        <section className="w-full min-h-screen bg-white py-20">
+        <div id="about" className="w-full min-h-screen bg-white py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl font-bold text-black mb-12">
+                <h2 className="text-4xl text-center font-bold text-black my-1 mb-12">
                     About Me
                 </h2>
 
@@ -32,7 +32,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
