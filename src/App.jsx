@@ -45,6 +45,8 @@ import Hero from "./components/hero";
 import About from "./components/about";
 import Technologies from "./components/technologies";
 import Experiences from "./components/experiences";
+import Projects from "./components/projects";
+import Contact from './components/contact';
 import React, { useState, useEffect } from "react";
 
 const App = () => {
@@ -87,6 +89,8 @@ const App = () => {
         <About />
         <Technologies />
         <Experiences />
+        <Projects />
+        <Contact />
       </main>
     </div>
   );
