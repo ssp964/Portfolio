@@ -60,7 +60,7 @@ const Experiences = () => {
                     <div className="absolute inset-0 bg-black/30 rounded-[40px]"></div>
 
                     {/* Content */}
-                    <div className="relative text-white flex flex-col justify-center h-full space-y-4 z-10">
+                    <div className="relative text-white flex flex-col justify-center h-full space-y-4">
                         <div className="flex flex-col pb-6">
                             <h2 className="text-3xl font-bold">Application Development Analyst</h2>
                             <h3 className="text-2xl font-semibold opacity-90 text-gray-300">Accenture</h3>
@@ -101,7 +101,7 @@ const Experiences = () => {
                     <div className="absolute inset-0 bg-black/30 rounded-[40px]"></div>
 
                     {/* Content */}
-                    <div className="relative text-white flex flex-col justify-center h-full space-y-4 z-10">
+                    <div className="relative text-white flex flex-col justify-center h-full space-y-4">
                         <div className="flex flex-col pb-6">
                             <h2 className="text-3xl font-bold">Software Engineer</h2>
                             <h3 className="text-2xl font-semibold opacity-90 text-gray-300">Company XYZ</h3>
@@ -146,7 +146,7 @@ const Experiences = () => {
                     <div className="absolute inset-0 bg-black/30 rounded-[40px]"></div>
 
                     {/* Content */}
-                    <div className="relative text-white flex flex-col justify-center h-full space-y-4 z-10">
+                    <div className="relative text-white flex flex-col justify-center h-full space-y-4">
                         <div className="flex flex-col pb-6">
                             <h2 className="text-3xl font-bold">Vice Captain</h2>
                             <h3 className="text-2xl font-semibold opacity-90 text-gray-300">Team Red Baron, India</h3>

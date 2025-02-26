@@ -20,7 +20,7 @@ const Model = () => {
             child.material = new THREE.MeshPhysicalMaterial({ // ✅ Use MeshPhysicalMaterial
                 color: "#353434",   // Color of the material (HEX or RGB)
                 roughness: 0,     // 0 = smooth and shiny, 1 = rough and matte
-                metalness: 0.8,      // 0 = non-metallic, 1 = fully metallic
+                metalness: 0.9,      // 0 = non-metallic, 1 = fully metallic
                 reflectivity: 1,     // 0 = no reflections, 1 = fully reflective
                 clearcoat: 1,        // 0 = no extra gloss, 1 = highly glossy coating
                 clearcoatRoughness: 0 // 0 = smooth clearcoat, 1 = rough clearcoat

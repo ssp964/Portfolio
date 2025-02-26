@@ -42,15 +42,18 @@
 import Navbar from './components/Navbar';
 import Preloader from "./components/Preloader";
 import Hero from "./components/hero";
-import About from "./components/about";
-import Technologies from "./components/technologies";
-import Experiences from "./components/experiences";
-import Projects from "./components/projects";
-import Contact from './components/contact';
-import React, { useState, useEffect } from "react";
+import About from "./components/About";
+import Technologies from "./components/Technologies";
+import Experiences from "./components/Experiences";
+import Projects from "./components/Projects";
+import Contact from './components/Contact';
+import Sphere3d from "./components/Sphere3d"; // Import Sphere3d
+
+import React, { useState, useEffect, useRef } from "react";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const sphereContainerRef = useRef(null);
 
   // Function to update state when Preloader finishes
   const handlePreloaderFinish = () => {
@@ -75,6 +78,13 @@ const App = () => {
     };
   }, [isLoading]);
 
+  // Initialize Sphere3d AFTER preloader finishes
+  useEffect(() => {
+    if (!isLoading && sphereContainerRef.current) {
+      new Sphere3d({ dom: sphereContainerRef.current });
+    }
+  }, [isLoading]); // Runs when isLoading changes
+
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Preloader */}
@@ -85,7 +95,7 @@ const App = () => {
       {/* Main Content */}
       <main className="relative">
         <Navbar />
-        <Hero />
+        <Hero preloaderFinished={!isLoading} />
         <About />
         <Technologies />
         <Experiences />

@@ -1,52 +1,72 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import Sphere3d from "./Sphere3d";
+import gsap from "gsap";
 
-const Hero = () => {
-    const [videoError, setVideoError] = useState(false);
+const Hero = ({ preloaderFinished }) => {
+    const sphereContainerRef = useRef(null);
+    const [sphereLoaded, setSphereLoaded] = useState(false);
+    const textRef = useRef(null);
+    const words = ["Data", "Insights", "Innovation", "Impact"];
+
+    useEffect(() => {
+        if (preloaderFinished && sphereContainerRef.current) {
+            try {
+                const sphere = new Sphere3d({ dom: sphereContainerRef.current });
+
+                // 🎯 Delay Sphere visibility until it's ready
+                setTimeout(() => {
+                    setSphereLoaded(true);
+                }, 100); // Adjust delay as needed
+
+            } catch (error) {
+                console.error("Sphere3D failed to load:", error);
+            }
+        }
+    }, [preloaderFinished]);
+
+    useEffect(() => {
+        if (preloaderFinished) {
+            const tl = gsap.timeline();
+
+            tl.delay(0.4);
+
+            words.forEach((word, i) => {
+                tl.to(textRef.current, {
+                    opacity: 1, duration: 0.2, ease: "power4.out",
+                    onStart: () => { textRef.current.innerHTML = word; }
+                });
+
+                tl.to(textRef.current, { opacity: 0, duration: 0.2, ease: "power4.inOut", delay: 0.2 });
+            });
+
+            // 🎯 After last word, transition smoothly to final text
+            tl.to(textRef.current, {
+                opacity: 1,
+                duration: 1,
+                ease: "power3.inOut",
+                onStart: () => { textRef.current.innerHTML = "I am a Data Scientist"; }
+            });
+        }
+    }, [preloaderFinished]);
 
     return (
-        <section id="hero" className="relative w-full h-screen overflow-hidden">
-            {/* Background Video or Fallback */}
-            {!videoError ? (
-                <div className="absolute inset-0">
-                    <video
-                        className="w-full h-full object-cover scale-[1.4] translate-x-10 md:translate-x-32 md:translate-y-32"
-                        // className="w-full h-full object-cover scale-[1.6] translate-x-10 md:-translate-x-64 md:translate-y-14"
-                        src="./src/assets/5495781-uhd_2560_1080_30fps.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        onError={(e) => {
-                            console.error('Video error:', e);
-                            setVideoError(true);
-                        }}
-                    />
-                    {/* Dark Overlay */}
-                    <div className="absolute inset-0 bg-black/60"></div>
-                </div>
-            ) : (
-                <div className="absolute top-0 h-screen w-screen bg-black bg-[radial-gradient(ellipse_80%_80%_at_50%_-35%,rgba(255,255,255,0.3),rgba(0,0,0,1))]"></div> // Fallback background if video fails
-            )
-            }
+        <section id="hero" className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-black">
+
+            {/* Sphere3D Background - Hidden until loaded */}
+            <div className={`absolute inset-0 transition-opacity duration-1000 ${sphereLoaded ? "opacity-100" : "opacity-0"}`}>
+                <div ref={sphereContainerRef} className="w-full h-full"></div>
+            </div>
 
             {/* Hero Content */}
-            <div className="relative h-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="h-full flex flex-col justify-end">
-                    {/* Text Container - Right Aligned */}
-                    <div className="w-full flex justify-end mb-28">
-                        <div className="bg-black/10 backdrop-blur-sm rounded-lg p-6 max-w-cl text-right">
-                            <h1 className="text-white text-5xl md:text-7xl font-inter tracking-wide">
-                                I am a Data Scientist
-                            </h1>
-                            <h2 className="text-white text-xl md:text-3xl font-inter tracking-wide mt-6">
-                                Designing scalable data ecosystems<br />
-                                to power the future of analytics and AI.
-                            </h2>
-                        </div>
-                    </div>
+            <div className="relative h-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+                <div className="text-center bg-transparent rounded-lg p-8">
+                    <h1 ref={textRef} className="text-white text-3xl md:text-5xl font-[Montserrat] tracking-wide opacity-0">
+                        {words[0]}
+                    </h1>
                 </div>
             </div>
-        </section >
+
+        </section>
     );
 };
 
