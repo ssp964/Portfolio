@@ -114,7 +114,7 @@ export default class Sphere3d {
     }
 
     setupFBO() {
-        this.size = 128;
+        this.size = 180;
         this.fbo = this.getRenderTarget();
         this.fbo1 = this.getRenderTarget();
 
