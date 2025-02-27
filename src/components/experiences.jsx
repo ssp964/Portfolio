@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import bgImage1 from "../assets/pexels-jplenio-1103970.jpg";
+import bgImage2 from "../assets/pexels-steve-13551574.jpg";
+import bgImage3 from "../assets/pexels-steve-13551577.jpg";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +52,7 @@ const Experiences = () => {
                             left: "0",
                             width: "100%",
                             height: "200%", // ✅ Extends beyond the parent to allow full scroll
-                            backgroundImage: "url('./src/assets/pexels-jplenio-1103970.jpg')",
+                            backgroundImage: `url(${bgImage1})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             willChange: "transform",
@@ -90,7 +94,7 @@ const Experiences = () => {
                             left: "0",
                             width: "100%",
                             height: "200%", // ✅ Extends beyond the parent to allow full scroll
-                            backgroundImage: "url('./src/assets/pexels-steve-13551574.jpg')",
+                            backgroundImage: `url(${bgImage2})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             willChange: "transform",
@@ -134,7 +138,7 @@ const Experiences = () => {
                             left: "0",
                             width: "100%",
                             height: "200%", // ✅ Extends beyond the parent to allow full scroll
-                            backgroundImage: "url('./src/assets/pexels-steve-13551577.jpg')",
+                            backgroundImage: `url(${bgImage3})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             willChange: "transform",
