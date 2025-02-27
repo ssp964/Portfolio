@@ -45,12 +45,9 @@ import Hero from "./components/hero";
 import About from "./components/about";
 import Technologies from "./components/technologies";
 import Experiences from "./components/experiences";
-import Hero from "./components/hero";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Sphere3d from "./components/sphere3d";
-import Technologies from "./components/technologies";
-
 
 import React, { useState, useEffect, useRef } from "react";
 
