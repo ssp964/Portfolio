@@ -74,8 +74,8 @@ const Projects = () => {
     return (
         <div id="projects" className="w-full min-h-screen bg-black py-20 text-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl md:text-7xl text-left font-bold mb-12 mt-2 px-6 md:px-0">
-                    Featured Projects
+                <h2 className="text-sm md:text-lg lg:text-xl font-[Montserrat] text-center uppercase tracking-widest opacity-70 mb-16">
+                    {`{ Featured Projects }`}
                 </h2>
 
                 <div className="flex flex-col gap-24">

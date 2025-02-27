@@ -61,11 +61,11 @@ const Technologies = () => {
 
     return (
         <div ref={sectionRef} id="tech" className="bg-black text-white min-h-screen flex flex-col">
-            <h2 className="text-sm md:text-lg lg:text-xl font-[Montserrat] uppercase tracking-widest opacity-70 mt-24 mb-10 text-center">
+            <h2 className="text-sm md:text-lg lg:text-xl font-[Montserrat] uppercase tracking-widest opacity-70 mt-20 mb-10 text-center">
                 {`{ Technologies }`}
             </h2>
 
-            <div className="max-w-6xl mx-auto flex flex-wrap gap-10 justify-center px-4 md:px-8">
+            <div className="max-w-6xl mx-auto flex flex-wrap gap-10 justify-center mb-16 md:mb-0 px-4 md:px-8">
                 {technologies.map((tech, index) => (
                     <div
                         key={index}

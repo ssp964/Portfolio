@@ -1,14 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import React, { useRef } from "react";
 import profile_pic_1 from "../assets/profile_pic_1.jpg";
 import profile_pic_2 from "../assets/profile_pic_3.jpg";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const About = () => {
     const textRef = useRef(null);
-    const profileRef = useRef(null);
 
     return (
         <div id="about" className="bg-white text-black min-h-screen flex flex-col">
@@ -31,31 +26,26 @@ const About = () => {
             </section>
 
             {/* Profile Section */}
-            {/* Profile Section - Now Holds Free Images */}
-            <section className="relative w-full max-w-7xl mx-auto min-h-screen px-6 md:px-16 bg-white text-black">
-                {/* Right Image Section - Now Moved Outside the Content Container */}
-                {/* Image Container (Absolute, Outside Content) */}
-                <div className="absolute top-0 right-0 w-full h-full">
+            <section className="relative w-full max-w-7xl mx-auto min-h-screen  px-6 md:px-16 bg-white text-black flex flex-col">
+
+                {/* Desktop Images (Hidden on small screens) */}
+                <div className="hidden lg:block absolute top-0 right-0 w-full h-full">
                     {/* Top Image - Right Aligned */}
                     <img
                         src={profile_pic_1}
                         alt="Profile 1"
-                        className="w-[360px] h-[480px] object-cover rounded-sm grayscale"
-                        style={{ position: 'absolute', right: '0px', top: '50px' }}
+                        className="w-[360px] h-[480px] object-cover rounded-sm grayscale absolute right-0 top-[50px]"
                     />
-
                     {/* Bottom Image - Left Aligned & Smaller */}
                     <img
                         src={profile_pic_2}
                         alt="Profile 2"
-                        className="w-[235px] h-[168px] object-contain rounded-sm grayscale"
-                        style={{ position: 'absolute', right: '380px', top: '540px' }}
+                        className="w-[235px] h-[168px] object-contain rounded-sm grayscale absolute right-[380px] top-[540px]"
                     />
                 </div>
 
-
                 {/* Profile Heading */}
-                <h2 className="text-sm md:text-lg lg:text-xl font-[Montserrat] uppercase tracking-widest opacity-70 lg:mt-24 mb-10 w-full text-center lg:text-left">
+                <h2 className="text-sm md:text-lg lg:text-xl font-[Montserrat] uppercase tracking-widest opacity-70 md:mt-24 lg:mt-24 mb-10 w-full text-center lg:text-left">
                     {`{ Profile }`}
                 </h2>
 
@@ -72,25 +62,23 @@ const About = () => {
                     </p>
                 </div>
 
+                {/* Mobile Images (Visible on small and medium screens) */}
+                <div className="flex flex-col items-center gap-6 lg:hidden my-6 mb-12">
+                    <img
+                        src={profile_pic_1}
+                        alt="Profile 1"
+                        className="w-[280px] h-[360px] object-cover rounded-sm grayscale"
+                    />
+                    <img
+                        src={profile_pic_2}
+                        alt="Profile 2"
+                        className="w-[280px] h-[200px] object-contain rounded-sm grayscale"
+                    />
+                </div>
 
             </section>
-
-
-
-
-
-
         </div>
     );
 };
 
 export default About;
-
-
-
-// I thrive on transforming raw data into powerful insights, enabling smarter decision-making and business growth.
-// For over 3 years, I have been leveraging data science and cloud computing to solve complex business challenges.
-
-// Currently pursuing a Master’s in Computer Science, I specialize in machine learning, predictive modeling, and data engineering.
-// With hands-on experience in AI-driven solutions, I build scalable, high-impact systems that optimize processes and unlock innovation.
-
