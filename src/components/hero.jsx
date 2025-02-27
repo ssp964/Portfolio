@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Sphere3d from "./Sphere3d";
+import Sphere3d from "./sphere3d";
 import gsap from "gsap";
 
 const Hero = ({ preloaderFinished }) => {
