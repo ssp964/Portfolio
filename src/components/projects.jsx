@@ -1,26 +1,46 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import project1Img from "../assets/projects/project-1.jpg";
-import project2Img from "../assets/projects/project-2.jpg";
-import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa"; // Tech stack icons
-
+import project1Img from "../assets/projects/Agrinet.jpeg";
+import rlp from "../assets/projects/rocket.jpeg";
+import TextSn from "../assets/projects/text_summary.jpeg";
+import SalesDash from "../assets/projects/SalesDash.png";
+import HrDash from "../assets/projects/HrDash.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
     {
         id: 1,
-        name: "Project One",
+        name: "AgriNet",
         image: project1Img,
-        github: "https://github.com/user/project1",
-        techStack: [<FaReact key="react" />, <FaNodeJs key="node" />, <FaDatabase key="db" />],
+        github: "https://github.com/ssp964/AgriNet",
     },
     {
         id: 2,
-        name: "Project Two",
-        image: project2Img,
-        github: "https://github.com/user/project2",
-        techStack: [<FaReact key="react" />, <FaNodeJs key="node" />, <FaDatabase key="db" />],
+        name: "Rocket Landing Prediction",
+        image: rlp,
+        github: "https://github.com/ssp964/rocket-landing-prediction",
+    },
+
+    {
+        id: 3,
+        name: "Text Summarization",
+        image: TextSn,
+        github: "https://github.com/ssp964/Text_summarization",
+    },
+
+    {
+        id: 4,
+        name: "Sales Dashboard",
+        image: SalesDash,
+        github: "https://public.tableau.com/views/SalesAndCustomerAnalyticsDashboard/SalesDashboard?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
+    },
+
+    {
+        id: 5,
+        name: "HR Dashboard",
+        image: HrDash,
+        github: "https://public.tableau.com/views/HumanResourcesDashboard_17385784789130/HRSummary?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
     },
 
 ];

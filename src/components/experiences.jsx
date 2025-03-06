@@ -12,25 +12,33 @@ const Experiences = () => {
     const parallaxRefs = useRef([]);
 
     useEffect(() => {
-        // Jump-in Effect for Experience Containers
+        // Fade and Slide Effect
         experienceRefs.current.forEach((ref, index) => {
             if (ref) {
                 gsap.fromTo(
                     ref,
-                    { opacity: 0, y: 100 },
+                    {
+                        opacity: 0,
+                        y: 50,
+                        scale: 0.45
+                    },
                     {
                         opacity: 1,
                         y: 0,
-                        ease: "power2.out",
+                        scale: 1,
+                        ease: "sine.out",
+
                         scrollTrigger: {
                             trigger: ref,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse",
-                        },
+                            start: "top 90%",
+                            end: "top 50%",
+                            scrub: true, // Fully sync with scroll
+                        }
                     }
                 );
             }
         });
+
 
         // Parallax Effect on Background Images
         parallaxRefs.current.forEach((ref) => {
@@ -106,30 +114,44 @@ const Experiences = () => {
                                 {index === 0 && (
                                     <>
                                         <p className="leading-relaxed">
-                                            Designed and developed end-to-end data pipelines for on-prem to GCP cloud migration using DBT, BigQuery, and Apache Airflow, reducing processing time and cost by 20%.
+                                            - Designed and developed end to end data pipelines to migrate on-premises to GCP cloud using DBT, BigQuery and Apache Airflow to
+                                            orchestrate this data workflow, reducing processing costs by 20% and improving data availability for real-time analytics
                                         </p>
                                         <p className="leading-relaxed">
-                                            Automated SAP MM workflows using TOSCA, reducing manual data validation by 60%, while managing SAP MM configurations with Excel & VBA and developing a ServiceNow-integrated ticket tracking dashboard for reporting.
+                                            - Defined and surfaced metrics to guide decision-making on retail & telecom data using BigQuery to develop key performance
+                                            indicators (KPIs) and interactive dashboards using Tableau delivering actionable insights
+                                        </p>
+                                        <p className="leading-relaxed">
+                                            - Delivered performance insights and executive summaries to global leadership, highlighting key value propositions while
+                                            recommending data driven solutions and strategies to address business challenges
                                         </p>
                                     </>
                                 )}
                                 {index === 1 && (
                                     <>
                                         <p className="leading-relaxed">
-                                            Led backend API development using Node.js and optimized database queries for faster performance.
+                                            - Developed a machine learning model using Python and scikit-learn to predict equipment failures based on real-time sensor data,
+                                            analyzing over 500K+ data points and achieving 92% predictive accuracy, reducing downtime by 40%
                                         </p>
                                         <p className="leading-relaxed">
-                                            Designed CI/CD pipelines to enhance deployment speed and reliability.
+                                            - Developed key performance indicators (KPIs) for order fulfillment tracking in Power BI by integrating order backlog, shipment
+                                            status and delivery timelines, improving supply chain visibility and reducing late deliveries by 15%
+                                        </p>
+                                        <p className="leading-relaxed">
+                                            - Built a Power BI dashboard to analyze material scoreboard data, track inventory trends and optimize stock levels improving
+                                            procurement efficiency and reducing overstocking and costs by 20%
                                         </p>
                                     </>
                                 )}
                                 {index === 2 && (
                                     <>
                                         <p className="leading-relaxed">
-                                            Spearheaded aerodynamics simulations for the Formula Student racing team.
+                                            - Improved operational performance of the vehicle by 25% with ETL processes on DAQ data using Python, conducting
+                                            performance analysis and tracking work of the team members and vehicle with dashboards in Excel and RapidMiner
                                         </p>
                                         <p className="leading-relaxed">
-                                            Led a team of engineers in designing a cutting-edge vehicle telemetry system.
+                                            - Led a team of 40 members to execute data-driven projects improving team efficiency by 35% and collaborated with sponsors to
+                                            deliver actionable insights, securing $25K in funding
                                         </p>
                                     </>
                                 )}

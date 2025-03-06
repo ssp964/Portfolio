@@ -26,7 +26,7 @@ const Contact = () => {
 
                             {/* Social Links */}
                             <div className="flex justify-center md:justify-end gap-4 mt-3 text-xl text-gray-600 tracking-wide">
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                <a href="https://linkedin.com/in/supritspatil" target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     LinkedIn ↗
                                 </a>
                             </div>

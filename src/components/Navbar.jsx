@@ -109,17 +109,17 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Name - Centered */}
                 <button
-                    onClick={handleNameClick}
-                    className={`text-xl text-white font-['Arizonia'] tracking-wider 
-                                hover:bg-white/20 active:scale-95 transform transition-all duration-200 
+                    onClick={handleNameClick}  // Scrolls to the top when clicked
+                    className={`text-xl font-['Arizonia'] tracking-wider 
+                                hover:scale-105 active:scale-95 transform transition-all duration-200 
                                 cursor-pointer border-none focus:outline-none
                                 px-6 py-2 mt-2 rounded-full
-                                ${scrolled ? "bg-black/40 backdrop-blur-sm" : "bg-black/20"}`}
+                                ${scrolled ? "bg-black/40 backdrop-blur-sm text-white" : "bg-black/20 text-white"}`}
                 >
                     Suprit Patil
                 </button>
+
             </div>
         </nav>
     );
